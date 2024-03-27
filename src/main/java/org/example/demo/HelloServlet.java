@@ -100,16 +100,17 @@ public class HelloServlet extends HttpServlet {
 
         /* hw task  */
         /* task 1 */
-        String quote = "Bad programmers worry about the code. Good programmers worry about data structures and their relationships.";
+//        out.println("<html><head><title>Quote by Linus Torvalds</title></head><body>");
+//        out.println("<h2>Quote by Linus Torvalds:</h2>");
+//        out.println("<p>\"Bad programmers worry about the code. Good programmers worry about data structures and their relationships.\"</p>");
+//        out.println("</body></html>");
 
-        response.getWriter().println("<html><head><title>Quote by Linus Torvalds</title></head><body>");
-        response.getWriter().println("<h2>Quote by Linus Torvalds:</h2>");
-        response.getWriter().println("<p>" + quote + "</p>");
-        response.getWriter().println("</body></html>");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
+
         /* lab task */
         /* task 4 */
 //        String fullName = request.getParameter("fullName");
@@ -117,7 +118,6 @@ public class HelloServlet extends HttpServlet {
 //        String email = request.getParameter("email");
 //        int age = Integer.parseInt(request.getParameter("age"));
 //
-//        response.setContentType("text/html");
 //        out.println("<html><head><title>Survey Results</title></head><body>");
 //        out.println("<h2>Survey Results:</h2>");
 //        out.println("<p>Full Name: " + fullName + "</p>");
@@ -219,9 +219,29 @@ public class HelloServlet extends HttpServlet {
 //            out.println("</body></html>");
 //        }
 
-        /* hw task  */
-        /* task 1 */
+        /* hw task */
+        /* task 2 */
+        String number1Str = request.getParameter("num1");
+        String number2Str = request.getParameter("num2");
+        String number3Str = request.getParameter("num3");
 
+        // Конвертація числових значень з рядкового типу в числовий
+        double number1 = Double.parseDouble(number1Str);
+        double number2 = Double.parseDouble(number2Str);
+        double number3 = Double.parseDouble(number3Str);
+
+        // Знаходження максимуму серед трьох чисел
+        double maxNumber = Math.max(number1, Math.max(number2, number3));
+
+        // Відображення результатів
+        out.println("<html><head><title>Maximum Number</title></head><body>");
+        out.println("<h2>Entered Numbers:</h2>");
+        out.println("<p>Number 1: " + number1 + "</p>");
+        out.println("<p>Number 2: " + number2 + "</p>");
+        out.println("<p>Number 3: " + number3 + "</p>");
+        out.println("<h2>Maximum Number:</h2>");
+        out.println("<p>" + maxNumber + "</p>");
+        out.println("</body></html>");
     }
 
     /* task 2 */
