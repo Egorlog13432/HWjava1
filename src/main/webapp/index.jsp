@@ -98,11 +98,33 @@
 <%--</form>--%>
 
 <%--task hw 4--%>
-<h2>Text Analysis</h2>
-<form action="TextAnalysisServlet" method="post">
-    <label for="text">Enter text:</label><br>
-    <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
-    <input type="submit" value="Analyze">
+<%--<h2>Text Analysis</h2>--%>
+<%--<form action="TextAnalysisServlet" method="post">--%>
+<%--    <label for="text">Enter text:</label><br>--%>
+<%--    <textarea id="text" name="text" rows="4" cols="50"></textarea><br>--%>
+<%--    <input type="submit" value="Analyze">--%>
+<%--</form>--%>
+
+<%--task hw 5--%>
+<h2>Calculator</h2>
+<form action="CalculatorServlet" method="post">
+    <label for="num1">Number 1:</label><br>
+    <input type="number" id="num1" name="num1" required><br>
+
+    <label for="num2">Number 2:</label><br>
+    <input type="number" id="num2" name="num2" required><br>
+
+    <label for="operation">Operation:</label><br>
+    <select id="operation" name="operation">
+        <option value="add">Addition (+)</option>
+        <option value="subtract">Subtraction (-)</option>
+        <option value="multiply">Multiplication (*)</option>
+        <option value="divide">Division (/)</option>
+        <option value="power">Exponentiation (^)</option>
+        <option value="percentage">Percentage (%)</option>
+    </select><br>
+
+    <input type="submit" value="Calculate">
 </form>
 </body>
 </html>

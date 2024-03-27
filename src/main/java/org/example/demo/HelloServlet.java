@@ -8,8 +8,10 @@ import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+/* hw task connect 5 */
+@WebServlet("/CalculatorServlet")
 /* hw task connect 4 */
-@WebServlet("/TextAnalysisServlet")
+//@WebServlet("/TextAnalysisServlet")
 /* hw task connect 3 */
 //@WebServlet("/CalculateServlet")
 /* hw task connect 2 */
@@ -279,41 +281,85 @@ public class HelloServlet extends HttpServlet {
 //        out.println("</body></html>");
 
         /* task 4 */
-        String text = request.getParameter("text");
+//        String text = request.getParameter("text");
+//
+//        List<Character> vowels = Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
+//        List<Character> consonants = new ArrayList<>();
+//        List<Character> separators = new ArrayList<>();
+//        int vowelsCount = 0;
+//        int consonantsCount = 0;
+//        int separatorsCount = 0;
+//
+//        for (int i = 0; i < text.length(); i++) {
+//            char ch = text.charAt(i);
+//            if (Character.isLetter(ch)) {
+//                if (vowels.contains(ch)) {
+//                    vowelsCount++;
+//                } else {
+//                    consonantsCount++;
+//                    consonants.add(ch);
+//                }
+//            } else if (Character.isWhitespace(ch)) {
+//            } else {
+//                separatorsCount++;
+//                separators.add(ch);
+//            }
+//        }
+//
+//        response.setContentType("text/html");
+//        out.println("<html><head><title>Text Analysis Results</title></head><body>");
+//        out.println("<h2>Text Analysis Results:</h2>");
+//        out.println("<p>Text: " + text + "</p>");
+//        out.println("<p>Vowels Count: " + vowelsCount + "</p>");
+//        out.println("<p>Vowels: " + vowels.toString() + "</p>");
+//        out.println("<p>Consonants Count: " + consonantsCount + "</p>");
+//        out.println("<p>Consonants: " + consonants.toString() + "</p>");
+//        out.println("<p>Separators Count: " + separatorsCount + "</p>");
+//        out.println("<p>Separators: " + separators.toString() + "</p>");
+//        out.println("</body></html>");
 
-        List<Character> vowels = Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
-        List<Character> consonants = new ArrayList<>();
-        List<Character> separators = new ArrayList<>();
-        int vowelsCount = 0;
-        int consonantsCount = 0;
-        int separatorsCount = 0;
+        /* task 5 */
+        double num1 = Double.parseDouble(request.getParameter("num1"));
+        double num2 = Double.parseDouble(request.getParameter("num2"));
+        String operation = request.getParameter("operation");
 
-        for (int i = 0; i < text.length(); i++) {
-            char ch = text.charAt(i);
-            if (Character.isLetter(ch)) {
-                if (vowels.contains(ch)) {
-                    vowelsCount++;
+        double result = 0;
+        String errorMessage = "";
+        switch (operation) {
+            case "add":
+                result = num1 + num2;
+                break;
+            case "subtract":
+                result = num1 - num2;
+                break;
+            case "multiply":
+                result = num1 * num2;
+                break;
+            case "divide":
+                if (num2 != 0) {
+                    result = num1 / num2;
                 } else {
-                    consonantsCount++;
-                    consonants.add(ch);
+                    errorMessage = "Error: division by zero!";
                 }
-            } else if (Character.isWhitespace(ch)) {
-            } else {
-                separatorsCount++;
-                separators.add(ch);
-            }
+                break;
+            case "power":
+                result = Math.pow(num1, num2);
+                break;
+            case "percentage":
+                result = (num1 * num2) / 100;
+                break;
+            default:
+                errorMessage = "Error: invalid operation!";
         }
 
         response.setContentType("text/html");
-        out.println("<html><head><title>Text Analysis Results</title></head><body>");
-        out.println("<h2>Text Analysis Results:</h2>");
-        out.println("<p>Text: " + text + "</p>");
-        out.println("<p>Vowels Count: " + vowelsCount + "</p>");
-        out.println("<p>Vowels: " + vowels.toString() + "</p>");
-        out.println("<p>Consonants Count: " + consonantsCount + "</p>");
-        out.println("<p>Consonants: " + consonants.toString() + "</p>");
-        out.println("<p>Separators Count: " + separatorsCount + "</p>");
-        out.println("<p>Separators: " + separators.toString() + "</p>");
+        out.println("<html><head><title>Calculator Result</title></head><body>");
+        if (!errorMessage.isEmpty()) {
+            out.println("<h2>" + errorMessage + "</h2>");
+        } else {
+            out.println("<h2>Calculator Result:</h2>");
+            out.println("<p>" + num1 + " " + operation + " " + num2 + " = " + result + "</p>");
+        }
         out.println("</body></html>");
     }
 
