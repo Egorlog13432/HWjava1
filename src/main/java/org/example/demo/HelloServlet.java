@@ -232,24 +232,24 @@ public class HelloServlet extends HttpServlet {
 
         /* hw task */
         /* task 2 */
-//        String number1Str = request.getParameter("num1");
-//        String number2Str = request.getParameter("num2");
-//        String number3Str = request.getParameter("num3");
-//
-//        double number1 = Double.parseDouble(number1Str);
-//        double number2 = Double.parseDouble(number2Str);
-//        double number3 = Double.parseDouble(number3Str);
-//
-//        double maxNumber = Math.max(number1, Math.max(number2, number3));
-//
-//        out.println("<html><head><title>Maximum Number</title></head><body>");
-//        out.println("<h2>Entered Numbers:</h2>");
-//        out.println("<p>Number 1: " + number1 + "</p>");
-//        out.println("<p>Number 2: " + number2 + "</p>");
-//        out.println("<p>Number 3: " + number3 + "</p>");
-//        out.println("<h2>Maximum Number:</h2>");
-//        out.println("<p>" + maxNumber + "</p>");
-//        out.println("</body></html>");
+        String number1Str = request.getParameter("num1");
+        String number2Str = request.getParameter("num2");
+        String number3Str = request.getParameter("num3");
+
+        double number1 = Double.parseDouble(number1Str);
+        double number2 = Double.parseDouble(number2Str);
+        double number3 = Double.parseDouble(number3Str);
+
+        double maxNumber = Math.max(number1, Math.max(number2, number3));
+
+        out.println("<html><head><title>Maximum Number</title></head><body>");
+        out.println("<h2>Entered Numbers:</h2>");
+        out.println("<p>Number 1: " + number1 + "</p>");
+        out.println("<p>Number 2: " + number2 + "</p>");
+        out.println("<p>Number 3: " + number3 + "</p>");
+        out.println("<h2>Maximum Number:</h2>");
+        out.println("<p>" + maxNumber + "</p>");
+        out.println("</body></html>");
 
         /* task 3 */
 //        String number1Str = request.getParameter("number1");
@@ -319,49 +319,49 @@ public class HelloServlet extends HttpServlet {
 //        out.println("</body></html>");
 
         /* task 5 */
-        double num1 = Double.parseDouble(request.getParameter("num1"));
-        double num2 = Double.parseDouble(request.getParameter("num2"));
-        String operation = request.getParameter("operation");
-
-        double result = 0;
-        String errorMessage = "";
-        switch (operation) {
-            case "add":
-                result = num1 + num2;
-                break;
-            case "subtract":
-                result = num1 - num2;
-                break;
-            case "multiply":
-                result = num1 * num2;
-                break;
-            case "divide":
-                if (num2 != 0) {
-                    result = num1 / num2;
-                } else {
-                    errorMessage = "Error: division by zero!";
-                }
-                break;
-            case "power":
-                result = Math.pow(num1, num2);
-                break;
-            case "percentage":
-                result = (num1 * num2) / 100;
-                break;
-            default:
-                errorMessage = "Error: invalid operation!";
-        }
-
-        response.setContentType("text/html");
-        out.println("<html><head><title>Calculator Result</title></head><body>");
-        if (!errorMessage.isEmpty()) {
-            out.println("<h2>" + errorMessage + "</h2>");
-        } else {
-            out.println("<h2>Calculator Result:</h2>");
-            out.println("<p>" + num1 + " " + operation + " " + num2 + " = " + result + "</p>");
-        }
-        out.println("</body></html>");
-    }
+//        double num1 = Double.parseDouble(request.getParameter("num1"));
+//        double num2 = Double.parseDouble(request.getParameter("num2"));
+//        String operation = request.getParameter("operation");
+//
+//        double result = 0;
+//        String errorMessage = "";
+//        switch (operation) {
+//            case "add":
+//                result = num1 + num2;
+//                break;
+//            case "subtract":
+//                result = num1 - num2;
+//                break;
+//            case "multiply":
+//                result = num1 * num2;
+//                break;
+//            case "divide":
+//                if (num2 != 0) {
+//                    result = num1 / num2;
+//                } else {
+//                    errorMessage = "Error: division by zero!";
+//                }
+//                break;
+//            case "power":
+//                result = Math.pow(num1, num2);
+//                break;
+//            case "percentage":
+//                result = (num1 * num2) / 100;
+//                break;
+//            default:
+//                errorMessage = "Error: invalid operation!";
+//        }
+//
+//        response.setContentType("text/html");
+//        out.println("<html><head><title>Calculator Result</title></head><body>");
+//        if (!errorMessage.isEmpty()) {
+//            out.println("<h2>" + errorMessage + "</h2>");
+//        } else {
+//            out.println("<h2>Calculator Result:</h2>");
+//            out.println("<p>" + num1 + " " + operation + " " + num2 + " = " + result + "</p>");
+//        }
+//        out.println("</body></html>");
+//    }
 
     /* task 2 */
 //    protected void doPost(HttpServletRequest request, HttpServletResponse response)
